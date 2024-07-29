@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp/views/show_student_screen.dart';
 import '../controllers/student_controller.dart';
 import 'edit_student_screen.dart';
 import '../models/student.dart';
@@ -48,7 +49,7 @@ class ViewStudentsScreen extends StatelessWidget {
               title: const Text('Lihat Data'),
               onTap: () {
                 Get.back();
-                _viewStudentDetails(context, student);
+                Get.to(() => ShowStudentScreen(student: student));
               },
             ),
             ListTile(
@@ -73,34 +74,6 @@ class ViewStudentsScreen extends StatelessWidget {
     );
   }
 
-  void _viewStudentDetails(BuildContext context, Student student) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text('Detail Mahasiswa'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text('Nomor: ${student.nomor}'),
-              Text('Nama: ${student.name}'),
-              Text('Tanggal Lahir: ${student.tanggalLahir}'),
-              Text('Jenis Kelamin: ${student.jenisKelamin}'),
-              Text('Alamat: ${student.alamat}'),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Tutup'),
-              onPressed: () {
-                Get.back();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 
   void _confirmDelete(BuildContext context, Student student) {
     showDialog(

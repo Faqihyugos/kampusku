@@ -1,5 +1,5 @@
 class Student {
-  String? id;
+  int? id;
   String? nomor;
   String? name;
   String? tanggalLahir;

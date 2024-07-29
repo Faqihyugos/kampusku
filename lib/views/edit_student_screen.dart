@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../controllers/student_controller.dart';
 import '../models/student.dart';
 
@@ -19,13 +20,13 @@ class EditStudentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     _nomorController.text = student.nomor ?? '';
     _nameController.text = student.name ?? '';
-    _tanggalLahirController.text = student.tanggalLahir ?? '';
+    _tanggalLahirController.text = studentController.formatDateForDisplay(student.tanggalLahir) ?? '';
     _jenisKelaminController.text = student.jenisKelamin ?? '';
     _alamatController.text = student.alamat ?? '';
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Update Data Mahasiswa')),
-      body: Padding(
+      appBar: AppBar(title: const Text('Update Data')),
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
@@ -33,18 +34,38 @@ class EditStudentScreen extends StatelessWidget {
               controller: _nomorController,
               decoration: const InputDecoration(labelText: 'Nomor'),
             ),
+            SizedBox(height: 16),
             TextField(
               controller: _nameController,
               decoration: const InputDecoration(labelText: 'Nama'),
             ),
+            SizedBox(height: 16),
             TextField(
               controller: _tanggalLahirController,
-              decoration: const InputDecoration(labelText: 'Tanggal Lahir'),
+              decoration: const InputDecoration(
+                labelText: 'Tanggal Lahir',
+                hintText: 'DD-MM-YYYY',
+              ),
+              readOnly: true,
+              onTap: () async {
+                DateTime? pickedDate = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1900),
+                  lastDate: DateTime.now(),
+                );
+                if (pickedDate != null) {
+                  String formattedDate = DateFormat('dd-MM-yyyy').format(pickedDate);
+                  _tanggalLahirController.text = formattedDate;
+                }
+              },
             ),
+            SizedBox(height: 16),
             TextField(
               controller: _jenisKelaminController,
               decoration: const InputDecoration(labelText: 'Jenis Kelamin'),
             ),
+            SizedBox(height: 16),
             TextField(
               controller: _alamatController,
               decoration: const InputDecoration(labelText: 'Alamat'),
