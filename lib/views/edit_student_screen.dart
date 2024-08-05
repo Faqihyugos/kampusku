@@ -34,12 +34,12 @@ class EditStudentScreen extends StatelessWidget {
               controller: _nomorController,
               decoration: const InputDecoration(labelText: 'Nomor'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: _nameController,
               decoration: const InputDecoration(labelText: 'Nama'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: _tanggalLahirController,
               decoration: const InputDecoration(
@@ -60,12 +60,12 @@ class EditStudentScreen extends StatelessWidget {
                 }
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: _jenisKelaminController,
               decoration: const InputDecoration(labelText: 'Jenis Kelamin'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: _alamatController,
               decoration: const InputDecoration(labelText: 'Alamat'),

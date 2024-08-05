@@ -9,9 +9,9 @@ class InformationScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Tentang Aplikasi'),
       ),
-      body: Center(
+      body: const Center(
         child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -19,7 +19,7 @@ class StudentController extends GetxController {
       var studentsFromDb = await DBHelper().getStudents();
       students.assignAll(studentsFromDb);
       // Log fetched students for debugging
-      print("Fetched students: $studentsFromDb");
+      // print("Fetched students: $studentsFromDb");
     } finally {
       isLoading(false);
     }

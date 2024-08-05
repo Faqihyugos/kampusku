@@ -12,27 +12,29 @@ class AddStudentScreen extends StatelessWidget {
   final TextEditingController alamatController = TextEditingController();
   final TextEditingController tanggalLahirController = TextEditingController();
 
+  AddStudentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Input Data')),
+      appBar: AppBar(title: const Text('Input Data')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: nomorController,
-              decoration: InputDecoration(labelText: 'Nomor'),
+              decoration: const InputDecoration(labelText: 'Nomor'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: nameController,
-              decoration: InputDecoration(labelText: 'Nama'),
+              decoration: const InputDecoration(labelText: 'Nama'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: tanggalLahirController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Tanggal Lahir',
                 hintText: 'DD-MM-YYYY',
               ),
@@ -50,17 +52,17 @@ class AddStudentScreen extends StatelessWidget {
                 }
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: jenisKelaminController,
-              decoration: InputDecoration(labelText: 'Jenis Kelamin'),
+              decoration: const InputDecoration(labelText: 'Jenis Kelamin'),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: alamatController,
-              decoration: InputDecoration(labelText: 'Alamat'),
+              decoration: const InputDecoration(labelText: 'Alamat'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Student newStudent = Student(
@@ -73,7 +75,7 @@ class AddStudentScreen extends StatelessWidget {
                 studentController.addStudent(newStudent);
                 Get.back();
               },
-              child: Text('Add Student'),
+              child: const Text('Add Student'),
             ),
           ],
         ),

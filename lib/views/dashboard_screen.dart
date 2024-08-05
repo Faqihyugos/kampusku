@@ -9,7 +9,7 @@ class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   void _logout(BuildContext context) {
-    Get.offAll(() => LoginScreen());
+    Get.offAll(() => const LoginScreen());
   }
 
   @override
@@ -32,9 +32,9 @@ class DashboardScreen extends StatelessWidget {
                   color: Colors.red,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Icon(Icons.list_alt, color: Colors.white),
                     SizedBox(width: 8.0),
                     Text('LIHAT DATA', style: TextStyle(color: Colors.white)),
@@ -42,7 +42,7 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             InkWell(
               onTap: () {
                 Get.to(() => AddStudentScreen());
@@ -53,9 +53,9 @@ class DashboardScreen extends StatelessWidget {
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Icon(Icons.add, color: Colors.white),
                     SizedBox(width: 8.0),
                     Text('INPUT DATA', style: TextStyle(color: Colors.white)),
@@ -63,10 +63,10 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             InkWell(
               onTap: () {
-                Get.to(() => InformationScreen());
+                Get.to(() => const InformationScreen());
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -74,9 +74,9 @@ class DashboardScreen extends StatelessWidget {
                   color: Colors.yellow[800],
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Icon(Icons.info_outlined, color: Colors.white),
                     SizedBox(width: 8.0),
                     Text('INFORMASI', style: TextStyle(color: Colors.white)),
@@ -84,7 +84,7 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => _logout(context),
               child: const Text('Logout'),
